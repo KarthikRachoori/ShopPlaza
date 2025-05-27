@@ -137,7 +137,9 @@ Already excluded in `.gitignore`.
 
 ###  ![](images/clipboard-2942417021.png)
 
-### Profile Page  ![](images/clipboard-3035349023.png)
+### Profile Page 
+\
+![](images/clipboard-3035349023.png)
 
 ------------------------------------------------------------------------
 
