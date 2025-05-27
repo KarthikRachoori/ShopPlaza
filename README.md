@@ -116,28 +116,28 @@ Already excluded in `.gitignore`.
 
 ### Login Page
 
-###  ![](images/clipboard-3324937356.png){width="140"}
+###  ![](images/clipboard-3324937356.png)
 
 ### Forgot Password
 
 \
-![](images/clipboard-2658779582.png){width="151"}
+![](images/clipboard-2658779582.png)
 
 ### Home Page
 
-###  ![](images/clipboard-766364693.png){width="157"}
+###  ![](images/clipboard-766364693.png)
 
 ### 
 
 ### Product Details page
 
-###  ![](images/clipboard-17505195.png){width="163"}
+###  ![](images/clipboard-17505195.png)
 
 ### Cart page
 
-###  ![](images/clipboard-2942417021.png){width="168"}
+###  ![](images/clipboard-2942417021.png)
 
-### Profile Page  ![](images/clipboard-3035349023.png){width="168"}
+### Profile Page  ![](images/clipboard-3035349023.png)
 
 ------------------------------------------------------------------------
 
