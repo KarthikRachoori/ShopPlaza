@@ -7,10 +7,18 @@ export default function CreateAccount({ navigation }) {
   const [Confirm_Password, setConfirm_Password]=useState('');
   const [FullName, setFullName]=useState('');
 
-  const handleLogin = () => {
-    // Perform your login logic here, e.g., API call
-    // For demo purposes, we'll just show an alert
-    Alert.alert('Login', `Email: ${email}, Password: ${password},Confirm_Password:${Confirm_Password},FullName: ${FullName}`);
+  const handleRegister = () => {
+    // Perform your registration logic here, e.g., API call
+    // For demo purposes, we'll navigate to main app
+    if (email && password && Confirm_Password && FullName) {
+      if (password === Confirm_Password) {
+        navigation.navigate('MainTabs');
+      } else {
+        Alert.alert('Error', 'Passwords do not match');
+      }
+    } else {
+      Alert.alert('Error', 'Please fill in all fields');
+    }
   };
   return (
     <View style={styles.container}>
@@ -26,7 +34,7 @@ export default function CreateAccount({ navigation }) {
             placeholder="Full Name"
             placeholderTextColor="#ccc"
             value={FullName}
-            onChangeText={FullName}
+            onChangeText={setFullName}
           />
         </View>
         <View style={styles.inputView}>
@@ -63,7 +71,7 @@ export default function CreateAccount({ navigation }) {
         </View>
         <TouchableOpacity
         style={styles.createaccount}
-        onPress={() => navigation.navigate('Categories')}
+        onPress={handleRegister}
       >
         <Text style={styles.createAccountText}>Register</Text>
       </TouchableOpacity>

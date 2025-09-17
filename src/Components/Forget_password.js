@@ -28,7 +28,7 @@ export default function Forget_password({ navigation }) {
                     <View style={styles.buttons}>
                         <TouchableOpacity
                             style={[styles.button, styles.cancelButton]}
-                            onPress={() => navigation.navigate('Home')}
+                            onPress={() => navigation.navigate('Login')}
                         >
                             <Text style={styles.buttonText}>Cancel</Text>
                         </TouchableOpacity>

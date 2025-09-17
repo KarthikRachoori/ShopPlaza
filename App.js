@@ -1,31 +1,78 @@
 import React from 'react';
-
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import Categories from './src/Components/categories';
 import Cart from './src/Components/cart';
+import Orders from './src/Components/Orders';
+import Profile from './src/Components/Profile';
+import Favorites from './src/Components/Favorites';
 import Forget_password from './src/Components/Forget_password';
 import CreateAccount from './src/Components/CreateAccount';
 import Login from './src/Components/Login';
-const Stack = createStackNavigator();
 
-export default function App({navigation}) {
+import { FaCartArrowDown } from "react-icons/fa";
+import { MdHome } from "react-icons/md";
+import { AiOutlineBars } from "react-icons/ai";
+import { FaBookmark } from "react-icons/fa6";
+
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+// Main Tab Navigator
+function MainTabs() {
+  return (
+    <Tab.Navigator
+      screenOptions={({route}) => ({
+        tabBarIcon: ({focused, color, size}) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = <MdHome />;
+          } else if (route.name === 'Cart') {
+            iconName = <FaCartArrowDown />;
+          } else if (route.name === 'Categories') {
+            iconName = <AiOutlineBars />;
+          } else if (route.name === 'Orders') {
+            iconName = <FaBookmark/>;
+          }
+
+          return <Icon name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: '#000',
+        tabBarInactiveTintColor: '#999',
+        tabBarStyle: {
+          backgroundColor: '#FFFFFF',
+          borderTopWidth: 1,
+          borderTopColor: '#E0E0E0',
+          paddingVertical: 10,
+          paddingHorizontal: 20,
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontWeight: '500',
+          marginTop: 4,
+        },
+        headerShown: false,
+      })}>
+      <Tab.Screen name="Home" component={Categories} />
+      <Tab.Screen name="Cart" component={Cart} />
+      <Tab.Screen name="Categories" component={Categories} />
+      <Tab.Screen name="Orders" component={Orders} />
+    </Tab.Navigator>
+  );
+}
+
+export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen
-          name="Home"
+          name="Login"
           component={Login}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Categories"
-          component={Categories}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Cart"
-          component={Cart}
           options={{headerShown: false}}
         />
         <Stack.Screen
@@ -36,6 +83,16 @@ export default function App({navigation}) {
         <Stack.Screen
           name="CreateAccount"
           component={CreateAccount}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="MainTabs"
+          component={MainTabs}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Favorites"
+          component={Favorites}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

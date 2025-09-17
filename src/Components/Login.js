@@ -7,8 +7,12 @@ export default function HomeScreen({ navigation }) {
 
   const handleLogin = () => {
     // Perform your login logic here, e.g., API call
-    // For demo purposes, we'll just show an alert
-    Alert.alert('Login', `Email: ${email}, Password: ${password}`);
+    // For demo purposes, we'll navigate to main app
+    if (email && password) {
+      navigation.navigate('MainTabs');
+    } else {
+      Alert.alert('Error', 'Please enter both email and password');
+    }
   };
     return (
       <View style={styles.container} >
